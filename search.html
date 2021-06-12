@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-3" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="{{route('user.home')}}">Doctor Appoinment</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="">About </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <a class="btn btn-info mx-2" href="">Login/Register</a>
+            <a class="btn btn-warning mx-2" href="">Hospital</a>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="card m-5 border-0 shadow">
+            <!-- whole card start -->
+            <div class="card-body">
+                <form id="filterForm" method="GET" action="{{ route('user.filter') }}" class="">
+                    <div class="row border-bottom">
+                        <div class="col-md-6">
+                            <span class="badge badge-warning">Location: Feni</span>
+                            <input id="inLocation" type="hidden" name="location" value="{{$location}}" hidden>
+                            <input id="inCityId" type="hidden" name="city_id" value="{{$city_id}}" hidden>
+                            <input id="inDistricId" type="hidden" name="district_id" value="{{$district_id}}" hidden>
+                            <input id="inDivisionId" type="hidden" name="division_id" value="{{$division_id}}" hidden>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- Search -->
+                            <div class="input-group input-group-lg mb-3">
+                                <input name="search_name" type="text" class="form-control"
+                                    placeholder="Search for doctor & hospital..." />
+                                <div class="input-group-append">
+                                    <button class="btn btn-info searchBtn" type="button" id="button-addon2 ">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 border-right">
+                            <h5>Filter</h5>
+                            <div class="form-group">
+                                <label for="">Spacilist</label>
+                                <select name="doctor_type" id="doctorType" class="form-control form-control-sm">
+                                    <option>All</option>
+                                    <option value="">Medicine</option>
+                                    <option value="">Psychology</option>
+                                </select>
+                            </div>
+
+                            <h3>Division</h3>
+                            <nav class="nav flex-column">
+                                <a class="nav-link all-bangladesh" href="#">
+                                    All Bangladesh
+                                </a>
+                                <a data-toggle="modal" data-target="#location-modal" class="nav-link" href="">
+                                    Dhaka
+                                </a>
+                                <a data-toggle="modal" data-target="#location-modal" class="nav-link" href="">
+                                    Chittagong
+                                </a>
+                                <a data-toggle="modal" data-target="#location-modal" class="nav-link" href="">
+                                    Rangpur
+                                </a>
+                            </nav>
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="doctors-block">
+                                <h5>
+                                    Search results for
+                                    <span class="text-primary">Mizan</span>...
+                                </h5>
+
+                                <h2 class="">Doctors...</h2>
+                                <ul style="max-width: 400px" class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a href="{{ route('user.singleDoctor',  $doctor->id ) }}">
+                                            <h4>Mizanur Rahman</h4>
+                                        </a>
+                                        <p class="expertises">
+                                            Medicine, pysochology
+                                        </p>
+
+                                        <div class="avalaible-blokc">
+                                            <span>Avalaible in</span>
+                                            <a class="card-href" href="">
+                                                Mugda Hospital Lt.
+                                            </a>
+                                            <a class="card-href" href="">
+                                                Feni Model Hospital Lt.
+                                            </a>
+                                            <a class="card-href" href="">
+                                                Concept Hospital Lt.
+                                            </a>
+                                        </div>
+
+                                    </li>
+
+
+                                    <li class="list-group-item">
+                                        <a href="{{ route('user.singleDoctor',  $doctor->id ) }}">
+                                            <h4>Mizanur Rahman</h4>
+                                        </a>
+                                        <p class="expertises">
+                                            Medicine, pysochology
+                                        </p>
+
+                                        <div class="avalaible-blokc">
+                                            <span>Avalaible in</span>
+                                            <a class="card-href" href="">
+                                                Mugda Hospital Lt.
+                                            </a>
+                                            <a class="card-href" href="">
+                                                Feni Model Hospital Lt.
+                                            </a>
+                                            <a class="card-href" href="">
+                                                Concept Hospital Lt.
+                                            </a>
+                                        </div>
+
+                                    </li>
+
+
+                                    <li class="list-group-item">
+                                        <a href="{{ route('user.singleDoctor',  $doctor->id ) }}">
+                                            <h4>Mizanur Rahman</h4>
+                                        </a>
+                                        <p class="expertises">
+                                            Medicine, pysochology
+                                        </p>
+
+                                        <div class="avalaible-blokc">
+                                            <span>Avalaible in</span>
+                                            <a class="card-href" href="">
+                                                Mugda Hospital Lt.
+                                            </a>
+                                            <a class="card-href" href="">
+                                                Feni Model Hospital Lt.
+                                            </a>
+                                            <a class="card-href" href="">
+                                                Concept Hospital Lt.
+                                            </a>
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                                <div class="paginator">
+                                    <span>
+                                        <input id="pageNumber" type="hidden" name="page" value="">
+                                    </span>
+                                    <span class="border p-2">1</span>
+                                    <span class="border p-2">2</span>
+                                    <span class="border p-2">3</span>
+
+                                </div>
+
+                            </div>
+                            <div class="hospital-block">
+
+                                <h3>hospitals...</h3>
+                                <ul style="max-width: 400px" class="list-group list-group-flush">
+
+                                    <li class="list-group-item">
+                                        <a class="card-href" href="">
+                                            Concept Hospital Ltd.
+                                        </a>
+                                        <p>Chagalnaiya, Feni, Chattagong</p>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <a class="card-href" href="">
+                                            Model Hospital Ltd.
+                                        </a>
+                                        <p>Mirpur, Dhaka</p>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <a class="card-href" href="">
+                                            Al-Cemi Hospital Ltd.
+                                        </a>
+                                        <p>Feni Sadar, Feni, Chittagong</p>
+                                    </li>
+                                </ul>
+
+                                <div class="hospital-paginator">
+                                    <span>
+                                        <input id="hospitalPageNumber" type="hidden" name="hospital_pagination_number"
+                                            value="">
+                                    </span>
+                                    <span class="border p-2">1</span>
+                                    <span class="border p-2">2</span>
+                                    <span class="border p-2">3</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <input id="pageShowType" type="hidden" name="show" value="">
+                </form>
+            </div>
+            <!-- whole card end -->
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="location-modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body location-modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal end -->
+
+    </div>
+
+
+    <footer class="bg-white text-center text-white mt-5">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(24, 19, 19, 0.788);">
+            © 2020 Copyright:
+            <a class="text-white" href="#">Doctor Appoinment</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./assets/js/jquery-3.5.1.js">
+    </script>
+    <script src="./assets/js/popper.min.js">
+    </script>
+    <script src="./assets/js/bootstrap.min.js">
+    </script>
+    <!-- online cdn -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+  integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script> -->
+
+
+
+    <script>
+
+        $("#doctorType").on("change", function (event) {
+            $("form#filterForm").submit();
+        });
+
+        $(".searchBtn").on("click", function (event) {
+            $("form#filterForm").submit();
+        });
+
+        $(".all-bangladesh").on("click", function (event) {
+            $('#inDivisionId').val('');
+            $("#inDistrictId").val('');
+            $("#inCityId").val('');
+            $("#inLocation").val('Bangladesh');
+            $("form#filterForm").submit();
+        });
+
+
+
+        function getPageNumber(url) {
+            var test1 = /\bpage=\d/g; //find somingthing like, "page=Digit number"
+            var resultArray = url.match(test1);
+            var resString = resultArray[0];
+            var test2 = /\d/g; //find a digit number from a string
+            var finalResArray = resString.match(test2);
+            var finalPageNumber = finalResArray[0];
+            return finalPageNumber;
+        }
+        //on paginatior click for doctors
+        $(".paginator").on("click", "a", function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            var pageNumber = getPageNumber(url);
+            $("#pageNumber").val(pageNumber);
+            $("#pageShowType").val('doctors');
+            $("form#filterForm").submit();
+        });
+
+        $(".hospital-paginator").on("click", "a", function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+            var pageNumber = getPageNumber(url);
+            $("#hospitalPageNumber").val(pageNumber);
+            $("#pageShowType").val('hospitals');
+            $("form#filterForm").submit();
+        });
+        // matching doctors string with php variable values and removing other block
+        if ("doctors" == "{{$show}}") {
+            $(".hospital-block").empty();
+        }
+        if ("hospitals" == "{{$show}}") {
+            $(".doctors-block").empty();
+        }
+
+
+        //all about modal
+        $("#location-modal").on("show.bs.modal", function (e) {
+            var clickedElement = $(e.relatedTarget);
+            $(this).find(".location-modal-body").empty().load(clickedElement.attr("href"));
+        });
+
+        $(".location-modal-body").on('click', '.district_id', function () {
+            var url = $(this).data('url');
+            $(document).find(".location-modal-body").empty().load(url);
+        });
+
+        //back
+        $(".location-modal-body").on('click', '#backToDivision', function () {
+            var url = $(this).data('back-division-url');
+            $(document).find(".location-modal-body").empty().load(url);
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-3" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="{{route('user.home')}}">Doctor Appoinment</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="">About </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <a class="btn btn-info mx-2" href="">Login/Register</a>
+            <a class="btn btn-warning mx-2" href="">Hospital</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- main row  -->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- title Crad Start -->
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Take Appoinmnet to Concept Hospital Ltd.
+                        </h5>
+                    </div>
+                </div>
+                <!-- title Card End -->
+
+                <!-- Single Crad Start -->
+                <div class="mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Hospital: Concept Hospital Ltd.</h3>
+                            <h5 class="card-title">
+                                Doctor Name: Mizanur Rahman
+                            </h5>
+                            <p class="card-text">Psychologiest</p>
+                            <form action="{{ route('user.appoinmentAction') }}" method="POST">
+                           
+                                <input id="hospitalId" name="hospital_id" type="hidden"
+                                    value="{{ $requestData['hospital_id'] }}" />
+                                <input id="doctorId" name="doctor_id" type="hidden"
+                                    value="{{ $requestData['doctor_id'] }}" />
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <label for="">
+                                                Paitent Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <input name="paitent_name" class="form-control" type="text" value=""
+                                                placeholder="name..." />
+
+                                            <div class="text-danger">
+                                                Please Enter patiant name
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for=""> Age </label>
+                                            <input name="patient_age" class="form-control" type="number" value=""
+                                                placeholder="name..." />
+
+                                            <div class="text-danger">
+                                                enter age
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">
+                                                Mobile Number
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <input name="mobile" class="form-control" type="text" value=""
+                                                placeholder="mobile..." />
+
+                                            <div class="text-danger">
+                                                enter mobile number
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Doctor Sit Date </label>
+                                            <select id="appoinmentDate" name="appoinment_date"
+                                                class="form-control mb-2 mr-sm-2">
+                                                <option selected value="">
+                                                    select
+                                                </option>
+
+                                                <option data-day="{{$dayAndDate->day}}" value="">
+                                                    Friday 12-07-2021
+                                                </option>
+                                                <option data-day="{{$dayAndDate->day}}" value="">
+                                                    Friday 12-07-2021
+                                                </option>
+                                                <option data-day="{{$dayAndDate->day}}" value="">
+                                                    Friday 12-07-2021
+                                                </option>
+
+                                            </select>
+                                            
+                                            <div class="text-danger">
+                                            select date
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="visitTime">
+                                        <h5 class="text-danger"> Pleaes select shift</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="morningShift" name="visit_time" class="custom-control-input">
+                                                    <label class="custom-control-label" for="morningShift">Morning Shift</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="eveningShift" name="visit_time" class="custom-control-input">
+                                                    <label class="custom-control-label" for="eveningShift">Evening Shift</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <button class="btn btn-primary" type="submit">
+                                    Confrim Appoinment
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Card End -->
+            </div>
+            <div class="col-md-4">
+                <!-- sidebar Crad Start -->
+
+                <div class="card mt-3" style="width: 20rem">
+                    <div class="card-body">
+                        <h5 class="card-title">sidebar menu.</h5>
+                        <h5 class="card-title">sidebar menu.</h5>
+                        <h5 class="card-title">sidebar menu.</h5>
+                        <h5 class="card-title">sidebar menu.</h5>
+                    </div>
+                </div>
+                <!-- sidebar Card End -->
+            </div>
+        </div>
+    </div>
+
+ 
+    <script>
+        //   var doctorName = $("#doctorId option:selected").text();
+        $(document).ready(function () {
+            var hospital_id = $("#hospitalId").val();
+            var doctor_id = $("#doctorId").val();
+            $("#appoinmentDate").on("change", function () {
+                var day = $("#appoinmentDate option:selected").data("day");
+
+                $.ajax({
+                    url: "{{route('user.getVisitTime')}}",
+                    method: "GET",
+                    data: {
+                        hospital_id: hospital_id,
+                        doctor_id: doctor_id,
+                        day: day,
+                    },
+                    success: function (data) {
+                        if (data.success == true) {
+                            var visit_type = data.visit_time;
+                            if (visit_type.shift_type == "m") {
+                                $("#visitTime").empty().append("<span class='badge badge-warning'>Morning Shift </span> ");
+                            } else if (visit_type.shift_type == "e") {
+                                $("#visitTime").empty().append("<span class='badge badge-warning'>Evening Shift </span> ");
+                            } else if (visit_type.shift_type == "d") {
+                                $("#visitTime").empty().append("<span class='badge badge-warning'>Full Day Shift </span> ");
+                            } else if (visit_type.shift_type == "b") {
+                                $("#visitTime").empty().append('<h5 class="text-danger"> Pleaes select shift</h5>\
+                            <div class="row">\
+                                <div class= "col-md-6">\
+                                <div class="custom-control custom-radio custom-control-inline">\
+                                    <input type="radio" id="morningShift" name="visit_time" class="custom-control-input">\
+                                        <label class="custom-control-label" for="morningShift">Morning Shift</label>\
+                                        </div>\
+                                    <div class="custom-control custom-radio custom-control-inline">\
+                                        <input type="radio" id="eveningShift" name="visit_time" class="custom-control-input">\
+                                            <label class="custom-control-label" for="eveningShift">Evening Shift</label>\
+                                        </div>\
+                                    </div>\
+                                </div>');
+                            }
+
+
+                        } //top data.success if statement end
+
+                        //end success block
+                    },
+                });
+            });
+        });
+    </script>
+
+    <footer class="bg-white text-center text-white mt-5">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(24, 19, 19, 0.788);">
+            © 2020 Copyright:
+            <a class="text-white" href="#">Doctor Appoinment</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../assets/js/jquery-3.5.1.js">
+    </script>
+    <script src="../assets/js/popper.min.js">
+    </script>
+    <script src="../assets/js/bootstrap.min.js">
+    </script>
+
+</body>
+
+</html>
